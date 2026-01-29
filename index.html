@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Branded Youth | Official Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ===== GLOBAL ===== */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    min-height: 100vh;
+}
+
+/* ===== VIDEO BACKGROUND ===== */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+/* ===== HEADER HERO ===== */
+header {
+    text-align: center;
+    padding: 100px 20px;
+    background: rgba(0,0,0,0.4); /* dark overlay for readability */
+}
+
+header h1 {
+    font-size: 50px;
+    letter-spacing: 5px;
+    animation: glow 3s infinite;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #fff; }
+    50% { text-shadow: 0 0 25px red; }
+    100% { text-shadow: 0 0 5px #fff; }
+}
+
+header p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* ===== BRAND DEFINITION ===== */
+.brand-definition {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.brand-definition h2 {
+    font-size: 36px;
+    letter-spacing: 6px;
+}
+
+.brand-definition .definition-line {
+    font-style: italic;
+    color: #ff4d4d;
+    margin-bottom: 20px;
+}
+
+/* ===== PRODUCTS GRID ===== */
+.container {
+    padding: 40px 20px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.product {
+    background: rgba(255,255,255,0.95);
+    color: black;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.price {
+    font-weight: bold;
+    color: green;
+    margin: 10px 0;
+}
+
+/* ===== SELECTS & BUTTONS ===== */
+select {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+}
+
+.buttons a {
+    display: block;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    transition: background 0.3s;
+}
+
+.email-btn { background: black; }
+.email-btn:hover { background: #333; }
+
+.whatsapp-btn { background: #25D366; }
+.whatsapp-btn:hover { background: #128C7E; }
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: rgba(0,0,0,0.85);
+    margin-top: 40px;
+}
+</style>
+
+<script>
+function orderWhatsApp(product, price, colorId, sizeId) {
+    let color = document.getElementById(colorId).value;
+    let size = document.getElementById(sizeId).value;
+
+    let msg = `Order Request:
+Product: ${product}
+Color: ${color}
+Size: ${size}
+Price: ${price}`;
+
+    window.open(`https://wa.me/233545861622text=${encodeURIComponent(msg)}`);
+}
+
+function orderEmail(product, price, colorId, sizeId) {
+    let color = document.getElementById(colorId).value;
+    let size = document.getElementById(sizeId).value;
+
+    let body = `Product: ${product}
+Color: ${color}
+Size: ${size}
+Price: ${price}
+
+Name:
+Phone:
+Location:`;
+
+    window.location.href =
+    `mailto:princebortei30gmail@gmail.com?subject=Order Request&body=${encodeURIComponent(body)}`;
+}
+</script>
+</head>
+
+<body>
+
+<!-- ===== BACKGROUND VIDEO ===== -->
+<video autoplay muted loop class="video-background">
+    <source src="background-clip.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+
+<!-- ===== HEADER HERO ===== -->
+<header>
+    <h1>THE BRANDED YOUTH</h1>
+    <p>Youth • Culture • Identity</p>
+</header>
+
+<!-- ===== BRAND DEFINITION ===== -->
+<section class="brand-definition">
+    <h2>TORCHER!!</h2>
+    <p class="definition-line">the one who carries fire.</p>
+    <p>Fire represents drive, pain, ambition, survival, rebellion, and transformation.</p>
+    <p>This is a brand for people who burn to become something more.</p>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<div class="container">
+<div class="products">
+
+<!-- PRODUCT 1 -->
+<div class="product">
+    <img src=""
+    <h3>The Branded Youth – Ankh T-Shirt</h3>
+    <p class="price">GHS 160</p>
+
+    <select id="color1">
+        <option>White</option>
+        <option>Black</option>
+        <option>Red</option>
+        <option>Grey</option>
+        <option>Beige</option>
+    </select>
+
+    <select id="size1">
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+    </select>
+
+    <div class="buttons">
+        <a class="email-btn" href="#" onclick="orderEmail('Ankh T-Shirt','GHS 150','color1','size1')">Buy via Email</a>
+        <a class="whatsapp-btn" href="#" onclick="orderWhatsApp('Ankh T-Shirt','GHS 150','color1','size1')">Order on WhatsApp</a>
+    </div>
+</div>
+
+<!-- PRODUCT 2 -->
+<div class="product">
+    <img src="C47700C3-BD33-4252-8105-B3907B434C00.jpeg" alt="Ankh Cap">
+    <h3>The Branded Youth – Ankh Cap</h3>
+    <p class="price">GHS 90</p>
+
+    <select id="color2">
+        <option>Black</option>
+        <option>White</option>
+        <option>Grey</option>
+    </select>
+
+    <select id="size2">
+        <option>One Size</option>
+    </select>
+
+    <div class="buttons">
+        <a class="email-btn" href="#" onclick="orderEmail('Ankh Cap','GHS 90','color2','size2')">Buy via Email</a>
+        <a class="whatsapp-btn" href="#" onclick="orderWhatsApp('Ankh Cap','GHS 90','color2','size2')">Order on WhatsApp</a>
+    </div>
+</div>
+
+<!-- PRODUCT 3 (NEW) -->
+<div class="product">
+    <img src=""
+    <h3>The Branded Youth – Hoodie</h3>
+    <p class="price">GHS 350</p>
+
+    <select id="color3">
+        <option>Black</option>
+        <option>White</option>
+        <option>Red</option>
+    </select>
+
+    <select id="size3">
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+    </select>
+
+    <div class="buttons">
+        <a class="email-btn" href="#" onclick="orderEmail('Hoodie','GHS 350','color3','size3')">Buy via Email</a>
+        <a class="whatsapp-btn" href="#" onclick="orderWhatsApp('Hoodie','GHS 350','color3','size3')">Order on WhatsApp</a>
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>Follow Us: Instagram • Facebook • TikTok</p>
+    <p>&copy; 2026 THE BRANDED YOUTH</p>
+</footer>
+
+</body>
+</html>
